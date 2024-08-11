@@ -8,15 +8,17 @@ import java.io.PrintWriter;
 
 public class HelloServlet extends HttpServlet {
     public void doGet(HttpServletRequest request,
-                      HttpServletResponse response) throws IOException {
+            HttpServletResponse response) throws IOException {
+        String url = request.getContextPath() + "/src/css/styles.css";
         PrintWriter out = response.getWriter();
         out.println("<HTML>");
-        out.println("<HEAD>");
+        out.println("<head>");
+        out.println("<link rel='stylesheet' type='text/css' href='" + url + "'/>");
         out.println("<TITLE>Hello Servlet</TITLE>");
-        out.println("</HEAD>");
-        out.println("<BODY>");
+        out.println("</head>");
+        out.println("<body>");
         out.println("Hello Servlet");
-        out.println("</BODY>");
+        out.println("</body>");
         out.println("</HTML>");
     }
 }
